@@ -2,15 +2,17 @@ package com.doilux.util.javaslang;
 
 import javaslang.collection.HashMap;
 import javaslang.collection.Map;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 
 import java.util.stream.Collectors;
 
-@EqualsAndHashCode(doNotUseGetters = true)
-@ToString(includeFieldNames = false)
-public class JavaMap2JavaslangMapConverter {
+public class J2SlangMapConverter {
 
+    /**
+     * java.util.Mapをio.vavr.collection.Mapに変換する
+     *
+     * @param src
+     * @return
+     */
     public static Map<Object, Object> convert(java.util.Map<Object, Object> src) {
         return HashMap.ofAll(src
                 .entrySet()

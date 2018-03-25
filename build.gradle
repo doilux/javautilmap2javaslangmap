@@ -10,41 +10,28 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    main {
-        java {
-            srcDir 'src/main/java'
-        }
-        groovy {
-            srcDir 'src/main/java'
-        }
-        resources {
-            srcDir 'src/main/resources'
-        }
-    }
-
-    test {
-        java {
-            srcDir 'src/test/java'
-        }
-        groovy {
-            srcDir 'src/test/java'
-        }
-        resources {
-            srcDir 'src/test/resources'
-        }
-    }
-}
 
 dependencies {
-    // lombok
-    compileOnly "org.projectlombok:lombok:1.16.12"
-
     // https://mvnrepository.com/artifact/io.javaslang/javaslang
-    compile group: 'io.javaslang', name: 'javaslang', version: '2.0.5'
+    compile group: 'io.javaslang', name: 'javaslang', version: '2.0.6'
 
-    testCompile 'org.codehaus.groovy:groovy-all:2.3.11'
+
+    // https://mvnrepository.com/artifact/io.vavr/vavr
+    compile group: 'io.vavr', name: 'vavr', version: '0.9.2'
 
     // https://mvnrepository.com/artifact/org.spockframework/spock-core
-    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4-rc-3'
+    testCompile group: 'org.spockframework', name: 'spock-core', version: '1.1-groovy-2.4'
+}
+
+apply plugin: 'maven'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository url: "file://${rootDir}/docs"
+            pom.version = '1.0.0'
+            pom.groupId = 'work.doilux'
+            pom.artifactId = 'javautilmap2javaslangmap'
+        }
+    }
 }

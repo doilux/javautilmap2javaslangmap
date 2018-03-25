@@ -33,13 +33,21 @@ For Example(Groovy Code - see the JavaMap2JavaslangMapConverterTest.groovy file 
     JavaMap2JavaslangMapConverter.convert(input) == output // true
 ```
 
-## Contribution
+## Usage
+edit build.gradle
 
-1. Fork it ( https://github.com/doilux/javautilmap2javaslangmap )
-2. Create your feature branch (git checkout -b my-new-feature)
-3. Commit your changes (git commit -am 'Add some feature')
-4. Push to the branch (git push origin my-new-feature)
-5. Create new Pull Request
+### example
+```$xslt
+repositories {
+    maven {
+        url 'https://doilux.github.io/javautilmap2javaslangmap/'
+    }
+}
+
+dependencies {
+    compile "work.doilux:javautilmap2javaslangmap:1.0.0"
+}
+```
 
 ## Licence
 
